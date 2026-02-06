@@ -26,6 +26,7 @@ Required:
 - `DB_PASSWORD`
 - `DB_NAME`
 - `AWS_REGION`
+- `AWS_PROFILE` (when using a named AWS profile)
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 - `S3_BUCKET_NAME`

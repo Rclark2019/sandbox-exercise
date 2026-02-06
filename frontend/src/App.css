@@ -13,6 +13,21 @@
   color: #52525b;
 }
 
+.notice {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+.notice code {
+  font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+}
+
 .label {
   display: block;
   margin: 1.5rem 0 0.5rem;

@@ -33,6 +33,10 @@ function App() {
     <div className="app">
       <h1>Local Development Sandbox</h1>
       <p className="subtitle">Save a text entry to storage or the database.</p>
+      <div className="notice">
+        For S3 uploads, set <code>AWS_PROFILE</code> in <code>backend/.env</code> to your local AWS profile.
+        The frontend never stores AWS keys.
+      </div>
 
       <label className="label" htmlFor="text-input">
         Text input
