@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS text_entries (
+  id SERIAL PRIMARY KEY,
+  content TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
