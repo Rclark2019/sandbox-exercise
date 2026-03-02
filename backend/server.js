@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.BACKEND_PORT || process.env.PORT || 3001;
@@ -10,6 +12,13 @@ const PORT = process.env.BACKEND_PORT || process.env.PORT || 3001;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Serve built frontend if provided
+const staticDir = process.env.STATIC_DIR;
+if (staticDir && fs.existsSync(staticDir)) {
+  app.use(express.static(staticDir));
+  console.log(`Serving static frontend from ${staticDir}`);
+}
 
 // PostgreSQL connection pool
 const pool = new Pool({
@@ -132,6 +141,16 @@ app.post('/api/database', async (req, res) => {
     });
   }
 });
+
+// SPA fallback (only when static assets are available)
+if (staticDir && fs.existsSync(staticDir)) {
+  app.get('*', (req, res) => {
+    if (req.path.startsWith('/api/')) {
+      return res.status(404).json({ message: 'Not found' });
+    }
+    return res.sendFile(path.join(staticDir, 'index.html'));
+  });
+}
 
 // Start server
 const startServer = async () => {

@@ -3,4 +3,7 @@ node_modules
 dist
 build
 .DS_Store
-
+infra/terraform.tfvars
+infra/.terraform/
+infra/terraform.tfstate
+infra/terraform.tfstate.*

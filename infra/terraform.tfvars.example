@@ -1,0 +1,18 @@
+project_name   = "sandbox-app"
+aws_region     = "us-gov-west-1"
+s3_bucket_name = "rc-cvle-sandbox-bucket-terraform"
+db_password    = "postgres"
+db_user        = "postgres"
+db_name        = "cvle_sandbox"
+
+# Optional overrides (defaults shown)
+ecr_repo_name        = "sandbox-app"
+image_tag            = "latest"
+db_instance_class    = "db.t3.micro"
+db_allocated_storage = 20
+desired_count        = 1
+ecs_cpu              = 256
+ecs_memory           = 512
+vpc_cidr             = "10.20.0.0/16"
+public_subnet_cidrs  = ["10.20.1.0/24", "10.20.2.0/24"]
+private_subnet_cidrs = ["10.20.11.0/24", "10.20.12.0/24"]

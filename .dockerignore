@@ -1,0 +1,10 @@
+.git
+.gitignore
+.DS_Store
+node_modules
+**/node_modules
+frontend/dist
+backend/.env
+frontend/.env
+infra/.terraform
+infra/.terraform.lock.hcl
